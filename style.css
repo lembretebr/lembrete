@@ -14,7 +14,7 @@ body {
 /* Sezioni larghe e minimal */
 .section {
   padding: 60px 20px;
-  max-width: 80px;
+  max-width: 1200px;
   margin: auto;
   text-align: center;
 }
@@ -214,11 +214,54 @@ footer {
 
 
 
+/* Main Layout - Flexbox per menu e player */
+.main-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 60px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Navigazione principale */
+.main-navigation {
+  flex: 0 0 auto;
+}
+
+.main-navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.main-navigation .nav-link {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Inter', 'Arial', sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #111;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  line-height: 1.2;
+}
+
+.main-navigation .nav-link:hover {
+  color: #333;
+  transform: translateX(4px);
+}
+
 .music-container {
-    max-width: 400px;    /* Larghezza ideale per questo tipo di player */
-    margin: 40px auto;   /* Centra il player nella pagina */
-    padding: 10px;
-    background: white;
-    border-radius: 15px; /* Arrotonda gli angoli */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Aggiunge un'ombra elegante */
+  flex: 1 1 auto;
+  max-width: 500px;
+  padding: 10px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
