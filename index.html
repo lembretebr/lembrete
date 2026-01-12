@@ -8,15 +8,13 @@
 </head>
 <body>
 
-    <div class="top-header">
-      
+    <header class="top-header">
         <nav class="top-nav">
             <a href="https://lembrete.bandcamp.com/track/primeira" target="_blank">primeira</a>
             <a href="https://lembrete.bandcamp.com/track/segunda" target="_blank">segunda</a>
             <a href="https://lembrete.bandcamp.com/track/terceira" target="_blank">terçeira</a>
         </nav>
-
-    </div>
+    </header>
 
     <div class="center-section">
         <div class="dates-cloud" id="datesCloud"></div>
@@ -52,7 +50,7 @@
 
     <script>
         const datesCloud = document.getElementById('datesCloud');
-        const numDates = 40; // Leggermente meno date per pulizia
+        const numDates = 45;
         for (let i = 0; i < numDates; i++) {
             const dateEl = document.createElement('div');
             dateEl.className = 'date-item';
@@ -61,7 +59,7 @@
             dateEl.textContent = `${day}.${month}.2025`;
             dateEl.style.top = Math.random() * 100 + '%';
             dateEl.style.left = Math.random() * 100 + '%';
-            dateEl.style.animationDelay = Math.random() * 20 + 's';
+            dateEl.style.animationDelay = Math.random() * 15 + 's';
             datesCloud.appendChild(dateEl);
         }
     </script>

@@ -1,74 +1,86 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: Georgia, serif; background: #fff; color: #111; overflow-x: hidden; }
 
+/* NAVIGAZIONE CENTRATA E DISTANZIATA */
 .top-header {
     display: flex;
-    justify-content: space-between;
-    padding: 10px 40px; /* Header più sottile */
-    font-family: Arial, sans-serif;
+    justify-content: center; /* Centra i link */
+    padding: 20px 0;
+}
+
+.top-nav { 
+    display: flex; 
+    gap: 120px; /* Spazio di circa 5cm tra i link */
+}
+
+.top-nav a { 
+    color: #bbb; 
+    text-decoration: none; 
+    text-transform: lowercase; 
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 10px;
-    color: #bbb;
     letter-spacing: 1px;
 }
-.top-nav { display: flex; gap: 30px; }
-.top-nav a { color: #bbb; text-decoration: none; text-transform: lowercase; }
 
-/* SEZIONE CENTRALE MOLTO PIÙ COMPATTA */
+/* SEZIONE CENTRALE COMPATTA */
 .center-section {
-    height: 40vh; /* Ridotta ancora l'altezza totale */
+    height: 35vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 0;
 }
+
 .main-title {
-    font-size: 80px; /* Leggermente più piccolo per stare in pagina */
-    letter-spacing: 12px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 55px; /* Titolo più piccolo ed elegante */
+    letter-spacing: 8px;
     text-transform: uppercase;
-    font-weight: 400;
-    margin-bottom: 0px;
-    z-index: 10;
-}
-.subtitle {
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    letter-spacing: 4px;
-    color: #888;
-    margin-bottom: 20px; /* Meno spazio tra sottotitolo e player */
+    font-weight: 700;
+    margin-bottom: 2px;
     z-index: 10;
 }
 
-/* PLAYER MINIMALE (Senza scatola bianca) */
+.subtitle {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #999;
+    margin-bottom: 20px;
+    z-index: 10;
+}
+
+/* PLAYER SENZA SCATOLA BIANCA */
 .player-wrapper {
     width: 100%;
-    max-width: 450px;
+    max-width: 400px;
     z-index: 10;
-    background: transparent; /* RIMOSSO IL BIANCO */
-    border: none; /* RIMOSSO IL BORDO */
-}
-.player-wrapper iframe {
-    height: 42px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
+.player-wrapper iframe { border: 0 !important; height: 42px; }
+
+/* DATE ANIMATE */
 .dates-cloud { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-.date-item { position: absolute; font-family: monospace; font-size: 11px; color: rgba(0,0,0,0.07); animation: float 18s infinite ease-in-out; }
-@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+.date-item { position: absolute; font-family: monospace; font-size: 10px; color: rgba(0,0,0,0.06); animation: float 18s infinite ease-in-out; }
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
 
-/* GRIGLIA CON GAP */
+/* GALLERY - BOX PIÙ PICCOLI E DISTANZIATI */
 .boxes-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px; /* Gap ridotto per compattezza */
-    padding: 0 40px 30px 40px;
-    max-width: 1300px;
+    gap: 50px; /* Grande spazio tra i box come da immagine */
+    padding: 40px 100px; /* Grandi margini laterali per rimpicciolire i box */
+    max-width: 1200px; /* Evita che diventino troppo grandi su schermi larghi */
     margin: 0 auto;
 }
 
 .gallery-item {
     position: relative;
-    height: 220px; /* Altezza ottimizzata per monitor medi */
+    height: 180px; /* Altezza ridotta per un look più sottile */
     background-color: #fff;
     overflow: hidden;
     display: flex;
@@ -81,22 +93,24 @@ body { font-family: Georgia, serif; background: #fff; color: #111; overflow-x: h
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: opacity 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: opacity 1s ease;
 }
 .gallery-item:hover img { opacity: 0.1; }
 
 .image-label {
     position: absolute;
     z-index: 10;
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    letter-spacing: 1px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 22px;
     color: #fff;
     pointer-events: none;
+    text-transform: lowercase;
 }
+
 .text-black { color: #000 !important; }
 
+/* RESPONSIVE */
 @media (max-width: 1024px) {
-    .boxes-grid { grid-template-columns: repeat(2, 1fr); }
-    .main-title { font-size: 55px; }
+    .boxes-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; padding: 20px 40px; }
+    .top-nav { gap: 40px; }
 }
