@@ -1,187 +1,105 @@
-/* --- RESET E STILI BASE --- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Georgia, serif; background: #fff; color: #111; overflow-x: hidden; }
 
-body {
-  font-family: Georgia, 'Times New Roman', serif;
-  background-color: #ffffff;
-  color: #111111;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* --- HEADER (Navigazione Superiore) --- */
+/* HEADER COMPATTO */
 .top-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 40px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 11px;
-  color: #999;
-  letter-spacing: 2px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: #999;
+    letter-spacing: 1px;
 }
+.top-nav { display: flex; gap: 30px; }
+.top-nav a { color: #999; text-decoration: none; text-transform: lowercase; }
 
-.top-nav {
-  display: flex;
-  gap: 40px;
-}
-
-.top-nav a {
-  color: #999;
-  text-decoration: none;
-  transition: color 0.4s ease;
-  text-transform: lowercase;
-}
-
-.top-nav a:hover {
-  color: #111;
-}
-
-/* --- SEZIONE CENTRALE (Titolo e Player) --- */
+/* SEZIONE CENTRALE RIDOTTA (Per non tagliare i box) */
 .center-section {
-  min-height: 65vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 20px;
-  position: relative;
-  text-align: center;
+    min-height: 45vh; /* Ridotto da 65vh a 45vh */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px 0;
 }
-
 .main-title {
-  font-size: clamp(50px, 8vw, 110px); /* Si adatta allo schermo */
-  letter-spacing: 18px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  font-weight: 400;
-  z-index: 10;
-  position: relative;
+    font-size: 90px;
+    letter-spacing: 15px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 5px;
+    z-index: 10;
 }
-
 .subtitle {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 14px;
-  letter-spacing: 4px;
-  color: #777;
-  text-transform: lowercase;
-  z-index: 10;
-  margin-bottom: 50px;
-  position: relative;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #666;
+    margin-bottom: 30px;
+    z-index: 10;
 }
-
 .player-wrapper {
-  width: 100%;
-  max-width: 550px;
-  z-index: 10;
-  background: #fff;
-  padding: 8px;
-  border: 1px solid #f0f0f0;
-  position: relative;
+    width: 100%;
+    max-width: 500px;
+    z-index: 10;
+    border: 1px solid #eee;
 }
 
-.player-wrapper iframe {
-  border: 0;
-  width: 100%;
-  height: 42px;
-}
+/* DATE SFUMATE */
+.dates-cloud { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+.date-item { position: absolute; font-family: monospace; font-size: 11px; color: rgba(0,0,0,0.06); animation: float 20s infinite ease-in-out; }
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
 
-/* --- NUVOLA DI DATE (Sfondo Animato) --- */
-.dates-cloud {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.date-item {
-  position: absolute;
-  font-family: 'Courier New', monospace;
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.08); /* Molto leggero e soave */
-  white-space: nowrap;
-  animation: float 22s infinite ease-in-out;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px) translateX(0px); }
-  50% { transform: translateY(-25px) translateX(10px); }
-}
-
-/* --- GALLERY GRID (I 4 Box) --- */
+/* GRIGLIA CON SPAZIO (GAP) */
 .boxes-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  width: 100%;
-  background-color: #ffffff;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; /* SPAZIO TRA I BOX richiesto */
+    padding: 0 40px 40px 40px; /* Margini laterali e inferiori */
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .gallery-item {
-  position: relative;
-  height: 380px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff; /* Sfondo bianco per la sfumatura hover */
-  text-decoration: none;
+    position: relative;
+    height: 250px; /* Altezza ridotta per visibilità immediata */
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
-/* --- IMMAGINI E ANIMAZIONE HOVER SOAVE --- */
+/* ANIMAZIONE LENTA SOAVE AL BIANCO */
 .gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: grayscale(20%); /* Leggermente desaturate di base */
-  transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), 
-              transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
-
 .gallery-item:hover img {
-  opacity: 0.15; /* Sfuma quasi completamente verso il bianco del fondo */
-  transform: scale(1.03); /* Leggerissimo zoom soave */
+    opacity: 0.1; /* Sfuma verso il bianco del fondo */
 }
 
-/* --- ETICHETTE TESTO --- */
+/* TESTI SUI BOX */
 .image-label {
-  position: absolute;
-  z-index: 10;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #ffffff; /* Bianco per Music e Live */
-  pointer-events: none;
-  transition: letter-spacing 0.8s ease;
+    position: absolute;
+    z-index: 10;
+    font-family: Arial, sans-serif;
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: #fff; /* Bianco per Music e Live */
+    pointer-events: none;
 }
-
-.gallery-item:hover .image-label {
-  letter-spacing: 5px; /* Si espande leggermente al passaggio */
-}
-
-/* Richiesta specifica: Testo nero per Works e Contacts */
 .text-black {
-  color: #111111 !important;
+    color: #000 !important; /* Nero per Works e Contacts */
 }
 
-/* --- RESPONSIVE --- */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
-  .main-title { font-size: 70px; letter-spacing: 10px; }
-  .boxes-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-item { height: 300px; }
-}
-
-@media (max-width: 768px) {
-  .boxes-grid { grid-template-columns: 1fr; }
-  .top-header { padding: 20px; flex-direction: column; gap: 15px; }
-  .top-nav { gap: 20px; }
+    .boxes-grid { grid-template-columns: repeat(2, 1fr); }
+    .main-title { font-size: 60px; }
 }

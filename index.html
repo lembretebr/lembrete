@@ -4,60 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LEMBRETE</title>
-    <style>
-        /* BASE & RESET */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Georgia, serif; background: #fff; color: #111; overflow-x: hidden; }
-
-        /* HEADER */
-        .top-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; font-family: sans-serif; font-size: 11px; color: #999; letter-spacing: 1px; }
-        .top-nav { display: flex; gap: 40px; }
-        .top-nav a { color: #999; text-decoration: none; transition: color 0.3s; }
-        .top-nav a:hover { color: #333; }
-
-        /* SEZIONE CENTRALE (TITOLO & PLAYER) */
-        .center-section { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px 20px; position: relative; text-align: center; }
-        .main-title { font-size: 100px; letter-spacing: 15px; margin-bottom: 10px; text-transform: uppercase; z-index: 10; position: relative; }
-        .subtitle { font-family: sans-serif; font-size: 14px; letter-spacing: 2px; color: #666; text-transform: lowercase; z-index: 10; margin-bottom: 40px; position: relative; }
-        
-        /* PLAYER BANDCAMP */
-        .player-wrapper { width: 100%; max-width: 600px; z-index: 10; background: white; padding: 10px; border: 1px solid #eee; position: relative; }
-        .player-wrapper iframe { border: 0; width: 100%; height: 42px; }
-
-        /* NUVOLA DI DATE (SFONDO ANIMATO) */
-        .dates-cloud { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden; }
-        .date-item { position: absolute; font-family: monospace; font-size: 12px; color: rgba(0, 0, 0, 0.1); animation: float 20s infinite ease-in-out; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-
-        /* GALLERY GRID (I 4 BOX IN FONDO) */
-        .boxes-grid { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; margin-top: 60px; }
-        .gallery-item { position: relative; height: 350px; overflow: hidden; display: flex; align-items: center; justify-content: center; background-color: #000; text-decoration: none; }
-        
-        /* IMMAGINI & EFFETTO HOVER */
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s ease; display: block; }
-        .gallery-item:hover img { opacity: 0.3; } /* Sbiadisce l'immagine al 30% */
-
-        /* ETICHETTE TESTO SULLE IMMAGINI */
-        .image-label { position: absolute; z-index: 10; font-family: sans-serif; font-size: 24px; font-weight: bold; text-transform: uppercase; color: #fff; pointer-events: none; }
-        
-        /* Richiesta specifica: Testo nero per Works e Contacts */
-        .text-black { color: #000 !important; }
-
-        /* RESPONSIVE PER CELLULARI */
-        @media (max-width: 1024px) { .main-title { font-size: 60px; } .boxes-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 768px) { .boxes-grid { grid-template-columns: 1fr; } }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="top-header">
-        <span>012.TRACKS</span>
+        <span class="side-label">012.TRACKS</span>
         <nav class="top-nav">
             <a href="https://lembrete.bandcamp.com/track/primeira" target="_blank">primeira</a>
             <a href="https://lembrete.bandcamp.com/track/segunda" target="_blank">segunda</a>
             <a href="https://lembrete.bandcamp.com/track/terceira" target="_blank">terçeira</a>
         </nav>
-        <span>012.TRACKS</span>
+        <span class="side-label">012.TRACKS</span>
     </div>
 
     <div class="center-section">
@@ -76,25 +34,25 @@
     <div class="boxes-grid">
         <a href="music.html" class="gallery-item">
             <img src="images/sfondo_music.jpg" alt="Music">
-            <span class="image-label">MUSIC</span>
+            <span class="image-label">music</span>
         </a>
         <a href="works.html" class="gallery-item">
             <img src="images/sfondo_works.jpg" alt="Works">
-            <span class="image-label text-black">WORKS</span>
+            <span class="image-label text-black">works</span>
         </a>
         <a href="live.html" class="gallery-item">
             <img src="images/sfondo_live.jpg" alt="Live">
-            <span class="image-label">LIVE</span>
+            <span class="image-label">live</span>
         </a>
         <a href="contacts.html" class="gallery-item">
             <img src="images/sfondo_contacts.jpg" alt="Contacts">
-            <span class="image-label text-black">CONTACTS</span>
+            <span class="image-label text-black">contacts</span>
         </a>
     </div>
 
     <script>
         const datesCloud = document.getElementById('datesCloud');
-        const numDates = 50;
+        const numDates = 40; // Leggermente meno date per pulizia
         for (let i = 0; i < numDates; i++) {
             const dateEl = document.createElement('div');
             dateEl.className = 'date-item';
@@ -104,7 +62,6 @@
             dateEl.style.top = Math.random() * 100 + '%';
             dateEl.style.left = Math.random() * 100 + '%';
             dateEl.style.animationDelay = Math.random() * 20 + 's';
-            dateEl.style.animationDuration = (Math.random() * 10 + 15) + 's';
             datesCloud.appendChild(dateEl);
         }
     </script>
