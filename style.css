@@ -1,70 +1,74 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: Georgia, serif; background: #fff; color: #111; overflow-x: hidden; }
 
-/* HEADER COMPATTO */
 .top-header {
     display: flex;
     justify-content: space-between;
-    padding: 15px 40px;
+    padding: 10px 40px; /* Header più sottile */
     font-family: Arial, sans-serif;
     font-size: 10px;
-    color: #999;
+    color: #bbb;
     letter-spacing: 1px;
 }
 .top-nav { display: flex; gap: 30px; }
-.top-nav a { color: #999; text-decoration: none; text-transform: lowercase; }
+.top-nav a { color: #bbb; text-decoration: none; text-transform: lowercase; }
 
-/* SEZIONE CENTRALE RIDOTTA (Per non tagliare i box) */
+/* SEZIONE CENTRALE MOLTO PIÙ COMPATTA */
 .center-section {
-    min-height: 45vh; /* Ridotto da 65vh a 45vh */
+    height: 40vh; /* Ridotta ancora l'altezza totale */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 20px 0;
+    padding: 0;
 }
 .main-title {
-    font-size: 90px;
-    letter-spacing: 15px;
+    font-size: 80px; /* Leggermente più piccolo per stare in pagina */
+    letter-spacing: 12px;
     text-transform: uppercase;
     font-weight: 400;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     z-index: 10;
 }
 .subtitle {
     font-family: Arial, sans-serif;
-    font-size: 13px;
-    letter-spacing: 3px;
-    color: #666;
-    margin-bottom: 30px;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #888;
+    margin-bottom: 20px; /* Meno spazio tra sottotitolo e player */
     z-index: 10;
 }
+
+/* PLAYER MINIMALE (Senza scatola bianca) */
 .player-wrapper {
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
     z-index: 10;
-    border: 1px solid #eee;
+    background: transparent; /* RIMOSSO IL BIANCO */
+    border: none; /* RIMOSSO IL BORDO */
+}
+.player-wrapper iframe {
+    height: 42px;
 }
 
-/* DATE SFUMATE */
 .dates-cloud { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-.date-item { position: absolute; font-family: monospace; font-size: 11px; color: rgba(0,0,0,0.06); animation: float 20s infinite ease-in-out; }
-@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+.date-item { position: absolute; font-family: monospace; font-size: 11px; color: rgba(0,0,0,0.07); animation: float 18s infinite ease-in-out; }
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
 
-/* GRIGLIA CON SPAZIO (GAP) */
+/* GRIGLIA CON GAP */
 .boxes-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px; /* SPAZIO TRA I BOX richiesto */
-    padding: 0 40px 40px 40px; /* Margini laterali e inferiori */
-    max-width: 1400px;
+    gap: 15px; /* Gap ridotto per compattezza */
+    padding: 0 40px 30px 40px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
 .gallery-item {
     position: relative;
-    height: 250px; /* Altezza ridotta per visibilità immediata */
+    height: 220px; /* Altezza ottimizzata per monitor medi */
     background-color: #fff;
     overflow: hidden;
     display: flex;
@@ -73,33 +77,26 @@ body { font-family: Georgia, serif; background: #fff; color: #111; overflow-x: h
     text-decoration: none;
 }
 
-/* ANIMAZIONE LENTA SOAVE AL BIANCO */
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: opacity 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: opacity 1s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
-.gallery-item:hover img {
-    opacity: 0.1; /* Sfuma verso il bianco del fondo */
-}
+.gallery-item:hover img { opacity: 0.1; }
 
-/* TESTI SUI BOX */
 .image-label {
     position: absolute;
     z-index: 10;
     font-family: Arial, sans-serif;
-    font-size: 26px;
-    letter-spacing: 2px;
-    color: #fff; /* Bianco per Music e Live */
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #fff;
     pointer-events: none;
 }
-.text-black {
-    color: #000 !important; /* Nero per Works e Contacts */
-}
+.text-black { color: #000 !important; }
 
-/* RESPONSIVE */
 @media (max-width: 1024px) {
     .boxes-grid { grid-template-columns: repeat(2, 1fr); }
-    .main-title { font-size: 60px; }
+    .main-title { font-size: 55px; }
 }
