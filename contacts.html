@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEMBRETE - CONTACTS</title> <link rel="stylesheet" href="style.css">
+    <title>LEMBRETE - CONTACTS</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* Stili specifici per le pagine interne per renderle diverse dalla home */
-        .subpage-container {
-            height: 80vh;
+        body {
+            background: #fff;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            height: 100vh;
             text-align: center;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #000;
         }
+
+        /* Tasto Back */
         .back-home {
             position: fixed;
-            top: 30px;
+            top: 40px;
             left: 40px;
-            font-family: Helvetica, Arial, sans-serif;
             font-size: 10px;
             letter-spacing: 2px;
             text-decoration: none;
@@ -27,39 +31,75 @@
             transition: color 0.3s;
         }
         .back-home:hover { color: #000; }
-        
-        .working-msg {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+        /* Titolo h1 sottile */
+        h1 {
             font-weight: 200;
-            font-size: 32px;
-            letter-spacing: 4px;
+            font-size: 52px;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+        }
+
+        /* Info Contatti */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            font-weight: 300;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .contact-info a {
             color: #000;
+            text-decoration: none;
+            transition: color 0.3s;
         }
         
+        .contact-info a:hover {
+            color: #bbb;
+        }
+
+        .label {
+            color: #bbb;
+            text-transform: lowercase;
+            margin-right: 10px;
+        }
+
+        /* Footer */
         footer {
             position: fixed;
-            bottom: 30px;
-            width: 100%;
-            text-align: center;
-            font-family: Helvetica, Arial, sans-serif;
+            bottom: 40px;
             font-size: 10px;
-            letter-spacing: 2px;
             color: #bbb;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
-    <a href="index.html" class="back-home">← back</a>
+    <a href="index.html" class="back-home">← back to home</a>
 
-    <div class="subpage-container">
-        <h1 class="working-msg">we are working on this page :-3</h1>
+    <h1>contacts</h1>
+
+    <div class="contact-info">
+        <div>
+            <span class="label">email:</span>
+            <a href="mailto:lembretemail@gmail.com">lembretemail@gmail.com</a>
+        </div>
+        
+        <div>
+            <span class="label">instagram:</span>
+            <div style="display: inline-block; text-align: left; vertical-align: top;">
+                <a href="https://www.instagram.com/saint.abel/" target="_blank">Saint Abel</a><br>
+                <a href="https://www.instagram.com/pagwwww/" target="_blank">Pagwwww</a>
+            </div>
+        </div>
     </div>
 
-    <footer>
-        lembrete 2025
-    </footer>
+    <footer>lembrete 2025</footer>
 
 </body>
 </html>
